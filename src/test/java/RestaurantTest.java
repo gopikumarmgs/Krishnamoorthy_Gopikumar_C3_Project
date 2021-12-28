@@ -2,6 +2,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,6 +40,29 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    @Test
+    public void calculate_total_oder_value_method_should_return_zero_if_user_not_select_any_item(){
+        //WRITE UNIT TEST CASE HERE
+        List<String>  selectedItem = new ArrayList<String>(2);
+        assertEquals("0",restaurant.calculateTotalOrderValue(selectedItem));
+    }
+
+    @Test
+    public void calculate_total_oder_value_method_should_return_119_if_user_select_sweet_corn_soup(){
+        //WRITE UNIT TEST CASE HERE
+        List<String>  selectedItem = new ArrayList<String>(2);
+        selectedItem.add("Sweet corn soup");
+        assertEquals("119",restaurant.calculateTotalOrderValue(selectedItem));
+    }
+
+    @Test
+    public void calculate_total_oder_value_method_should_return_388_if_user_select_sweet_corn_soup_and_vegetable_lasagne(){
+        //WRITE UNIT TEST CASE HERE
+        List<String>  selectedItem = new ArrayList<String>(2);
+        selectedItem.add("Sweet corn soup");
+        selectedItem.add("Vegetable lasagne");
+        assertEquals("388",restaurant.calculateTotalOrderValue(selectedItem));
+    }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
